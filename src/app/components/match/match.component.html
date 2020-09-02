@@ -1,0 +1,48 @@
+<div class="widget-next-match">
+    <div class="widget-body mb-3">
+        <div class="widget-vs">
+            <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
+                <div class="team-1 text-center">
+                    <img [src]="dataMatch.image" alt="Image">
+                    <h3> {{dataMatch.name}} <span>({{compare(dataMatch.score,dataMatch.score2)}})</span> </h3>
+
+                    <span [ngClass]="{
+                            'vert':compare(dataMatch.score,dataMatch.score2)=='win',
+                            'rouge':compare(dataMatch.score,dataMatch.score2)=='lose',
+                            'bleu':compare(dataMatch.score,dataMatch.score2)=='draw'
+                          }">{{dataMatch.score}}</span>
+                </div>
+                <div>
+                    <span class="vs"><span>VS</span></span>
+                </div>
+
+                <div class="team-2 text-center">
+                    <img [src]="dataMatch.image2" alt="Image">
+                    <h3>{{dataMatch.name2}} <span>({{compare(dataMatch.score2,dataMatch.score)}})</span></h3>
+
+                    <span [ngClass]="{
+              'vert': compare(dataMatch.score2, dataMatch.score) == 'win',
+              'rouge': compare(dataMatch.score2, dataMatch.score) == 'lose',
+              'bleu': compare(dataMatch.score2, dataMatch.score) == 'draw'
+            }">{{dataMatch.score2}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <button type="button" class="btn btn-danger" (click)='goToMatch(dataMatch.id)'>Display match</button>
+    </div>
+    <div class="center">
+        <button type="button" class="btn btn-secondary" (click)='deleteMatch(dataMatch.id)'>Delete match</button>
+    </div>
+    <div class="text-center widget-vs-contents mb-4">
+        <h4>World Cup League</h4>
+        <p class="mb-5">
+            <span class="d-block">{{dataMatch.date}}</span>
+            <span class="d-block">{{dataMatch.time}}</span>
+            <strong class="text-primary">New Euro Arena</strong>
+        </p>
+
+        <div id="date-countdown2" class="pb-1"></div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+
+    <div class="custom-media d-flex">
+
+        <div class="img mr-4">
+            <img [src]="dataPlayer.image" alt="Image" class="img-fluid">
+        </div>
+        <div class="text">
+            <span class="meta">{{dataPlayer.date}}</span>
+            <h3 class="mb-4"><a href="#">{{dataPlayer.question}}</a></h3>
+            <p>{{dataPlayer.paragraphe}}</p>
+            <p><a href="#">{{dataPlayer.read}}</a></p>
+        </div>
+
+    </div>
+    <div class="center padding">
+        <button type="button" class="btn btn-danger" (click)='goToPlayer(dataPlayer.id)'>Display player</button>
+    </div>
+    <div class="center padding">
+        <button type="button" class="btn btn-secondary" (click)='deletePlayer(dataPlayer.id)'>Delete player</button>
+    </div>
+</div>

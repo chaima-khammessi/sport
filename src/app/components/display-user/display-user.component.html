@@ -1,0 +1,35 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+</div>
+
+
+  <div class="container padding">        
+<div class="widget-next-match">
+  <table class="table custom-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>last Name</th>
+        <th>Age</th>
+        <th>adress</th>
+        <th>Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td><strong class="text-white">   {{user.firstName}} </strong></td>
+        <td> {{user.lastName}}   </td>
+        <td>{{user.age}}</td>
+        <td>{{user.adress}}</td>
+        <td ><button type="button" class="btn btn-danger" (click)='deleteUser(users.id)'>Delete</button></td>
+        <!-- <td>{{players.age}}</td> -->
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+
