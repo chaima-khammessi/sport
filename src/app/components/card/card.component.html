@@ -18,7 +18,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-12" *ngFor='let m of players'>
+  <div class="col-12" *ngFor='let m of players'>
     <app-players [dataPlayer]='m' (newPlayer)='updatePlayers($event)'></app-players>
   </div>
 
