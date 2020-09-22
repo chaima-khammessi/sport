@@ -5,13 +5,13 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class TrColorDirective {
 
-  constructor(private el:ElementRef) { }
+  constructor(private el: ElementRef) { }
 
-  @HostListener('mouseenter') onMouseEnter(){
-    this.el.nativeElement.style.backgroundColor='green';
+  @HostListener('mouseenter') onMouseEnter() {
+    this.el.nativeElement.style.backgroundColor = 'green';
   }
-  @HostListener('mouseleave') onMouseLeave(){
-    this.el.nativeElement.style.backgroundColor=null;
+  @HostListener('mouseleave') onMouseLeave() {
+    this.el.nativeElement.style.backgroundColor = null;
   }
 
 }

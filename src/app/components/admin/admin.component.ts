@@ -10,49 +10,52 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  @Input()user:any;
-    users: any = [];
-    id:number;
+  @Input() user: any;
+  users: any = [];
+  id: number;
 
 
-  constructor( 
-    private userService:UserService ,
-    private route:Router) { }
+  constructor(
+    private userService: UserService,
+    private route: Router) { }
 
   ngOnInit(): void {
-    
-    
+
+
     this.userService.getAllUsers().subscribe(
       data => {
-        this.users = data ;
-       
-        
-      },
-      error=>{
-        console.log(error);
-        
-      }
-    
-    )}
-   
+        this.users = data;
 
-    deleteUser(id:number){
-      this.userService.deleteUser(id).subscribe(
-        () => {
-          this.userService.getAllUsers().subscribe(
-            x=>{this.users=x;
-            }
-          )
-        }
-      )}
-     
-    
-      goToDisplayUser(id:number){
-        this.route.navigate([`display-user/${id}`]);
+
+      },
+      error => {
+        console.log(error);
+
       }
-      goToEditUser(id:number){
-        this.route.navigate([`editUser/${id}`]);
-      }
-      
+
+    )
   }
+
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        this.userService.getAllUsers().subscribe(
+          x => {
+            this.users = x;
+          }
+        )
+      }
+    )
+  }
+
+
+  goToDisplayUser(id: number) {
+    this.route.navigate([`display-user/${id}`]);
+  }
+  goToEditUser(id: number) {
+    this.route.navigate([`editUser/${id}`]);
+  }
+
+}
 

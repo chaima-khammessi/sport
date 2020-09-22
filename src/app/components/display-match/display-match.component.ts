@@ -10,19 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class DisplayMatchComponent implements OnInit {
-  match:any;
-  id:number;
-  constructor( private matchService:MatchService, 
-    private activateRoute:ActivatedRoute) { }
+  match: any;
+  id: any;
+  constructor(private matchService: MatchService,
+    private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id=+this.activateRoute.snapshot.paramMap.get('id');
+    this.id = this.activateRoute.snapshot.paramMap.get('id');
     this.matchService.getMatchById(this.id).subscribe(
-      x=> {
-        this.match = x
+      x => {
+        this.match = x.match
       }
     )
-    
+
   }
 
 }

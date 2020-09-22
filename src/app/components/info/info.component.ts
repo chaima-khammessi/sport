@@ -8,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  @Input()dataInfo:any;
+  @Input() dataInfo: any;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

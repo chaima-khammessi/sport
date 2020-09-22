@@ -9,21 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-player.component.css']
 })
 export class DisplayPlayerComponent implements OnInit {
-  player:any;
-  id:number;
+  player: any;
+  id: string;
 
-  constructor(private playersService:PlayersService,
-    private activateRoute:ActivatedRoute) { }
+  constructor(private playersService: PlayersService,
+    private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id=+this.activateRoute.snapshot.paramMap.get('id');
+    this.id = this.activateRoute.snapshot.paramMap.get('id');
     this.playersService.getplayerById(this.id).subscribe(
-      x=> {
-        this.player = x
+      data => {
+        console.log('player', data);
+        this.player = data.player
       }
     )
-   
-   
+
+
   }
 
 }

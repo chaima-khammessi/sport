@@ -26,7 +26,7 @@ import { InfoComponent } from './components/info/info.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { PlayersComponent } from './components/players/players.component';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api'; 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayMatchComponent } from './components/display-match/display-match.component';
 import { MatchComponent } from './components/match/match.component';
@@ -37,6 +37,7 @@ import { EditUsersComponent } from './components/edit-users/edit-users.component
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { TrColorDirective } from './directives/tr-color.directive';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
 
 
 
@@ -73,15 +74,16 @@ import { TrColorDirective } from './directives/tr-color.directive';
     SingleUserComponent,
     ReversePipe,
     TrColorDirective,
-   
+    AddPlayerComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-   ReactiveFormsModule,
-   InMemoryWebApiModule.forRoot(DataService),
-   HttpClientModule,
+    ReactiveFormsModule,
+    //InMemoryWebApiModule.forRoot(DataService),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

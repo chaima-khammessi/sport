@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-users.component.css']
 })
 export class EditUsersComponent implements OnInit {
-  id:number;
-  user:any;
-  userForm:FormGroup;
+  id: number;
+  user: any;
+  userForm: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute,
     private userService: UserService,
@@ -19,7 +19,7 @@ export class EditUsersComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.userForm =  this.formBuilder.group({
+    this.userForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
       age: [''],
@@ -33,7 +33,7 @@ export class EditUsersComponent implements OnInit {
     )
 
   }
-  validateEdit(){   
+  validateEdit() {
     this.userService.editUser(this.user).subscribe(
       () => {
         this.router.navigate(['admin']);

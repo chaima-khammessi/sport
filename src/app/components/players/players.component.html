@@ -3,20 +3,19 @@
     <div class="custom-media d-flex">
 
         <div class="img mr-4">
-            <img [src]="dataPlayer.image" alt="Image" class="img-fluid">
+            <img [src]="dataPlayer.img" alt="Image" class="img-fluid">
         </div>
         <div class="text">
-            <span class="meta">{{dataPlayer.date}}</span>
-            <h3 class="mb-4"><a href="#">{{dataPlayer.question}}</a></h3>
-            <p>{{dataPlayer.paragraphe}}</p>
-            <p><a href="#">{{dataPlayer.read}}</a></p>
+            <span class="meta">{{dataPlayer.name}}</span>
+            <h3 class="mb-4"><a href="#">{{dataPlayer.post}}</a></h3>
+            <p>{{dataPlayer.age}}</p>
         </div>
 
     </div>
     <div class="center padding">
-        <button type="button" class="btn btn-danger" (click)='goToPlayer(dataPlayer.id)'>Display player</button>
+        <button type="button" class="btn btn-danger" (click)='goToPlayer(dataPlayer._id)'>Display player</button>
     </div>
     <div class="center padding">
-        <button type="button" class="btn btn-secondary" (click)='deletePlayer(dataPlayer.id)'>Delete player</button>
+        <button type="button" class="btn btn-secondary" (click)='deletePlayer(dataPlayer._id)'>Delete player</button>
     </div>
 </div>

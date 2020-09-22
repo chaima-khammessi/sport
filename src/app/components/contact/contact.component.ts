@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-contact:any={};
+  contact: any = {};
   constructor() { }
 
   ngOnInit(): void {
   }
-  valider(){
+  valider() {
     alert('button valider')
     console.log('contact', this.contact);
-    
+
   }
 
 }

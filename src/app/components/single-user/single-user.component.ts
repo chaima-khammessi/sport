@@ -9,25 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleUserComponent implements OnInit {
 
-  id:number;
-  user:any;
+  id: number;
+  user: any;
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private userService:UserService
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get("id");
     this.userService.getUserById(this.id).subscribe(
       x => {
-        this.user =x;
+        this.user = x;
       }
     )
-
-
-
-
-    
   }
-
 }

@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 export class MatchComponent implements OnInit {
 
   @Input() dataMatch: any;
-  @Output( )newMatches:EventEmitter<any> = new EventEmitter();
+  @Output() newMatches: EventEmitter<any> = new EventEmitter();
   match: any = {};
-  
 
-  constructor( private router:Router,
-    private matchService:MatchService) { }
+
+  constructor(private router: Router,
+    private matchService: MatchService) { }
 
   ngOnInit(): void {
   }
@@ -37,21 +37,21 @@ export class MatchComponent implements OnInit {
     }
 
   }
-  goToMatch(id:number){
+  goToMatch(id: number) {
     this.router.navigate([`displayMatch/${id}`]);
 
   }
-    deleteMatch (id:number){
-     this.matchService.deleteMatch(id).subscribe(
-       ()=>{
-          this.matchService.getAllMatches().subscribe(
-            x=>{
-              this.newMatches.emit(x);
-            }
-          )
-       }
-       )
-    }
+  deleteMatch(id: number) {
+    this.matchService.deleteMatch(id).subscribe(
+      () => {
+        this.matchService.getAllMatches().subscribe(
+          x => {
+            this.newMatches.emit(x.matches);
+          }
+        )
+      }
+    )
+  }
 
 
 }

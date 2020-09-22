@@ -1,3 +1,4 @@
+import { AddPlayerComponent } from './components/add-player/add-player.component';
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { DisplayUserComponent } from './components/display-user/display-user.component';
@@ -76,7 +77,12 @@ const routes: Routes = [
 {
   path:'editUser/:id',
   component:EditUsersComponent
+},
+{
+  path:'add-player',
+  component:AddPlayerComponent
 }
+
 
 
 

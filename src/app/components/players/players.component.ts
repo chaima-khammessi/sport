@@ -8,29 +8,31 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent implements OnInit {
-  @Input()dataPlayer:any;
-  @Output( )newPlayer:EventEmitter<any> = new EventEmitter();
+  @Input() dataPlayer: any;
+  @Output() newPlayer: EventEmitter<any> = new EventEmitter();
 
-    players: any = {};
-    
-  constructor( private router:Router,
-    private playersService:PlayersService) { }
+  players: any = {};
+
+  constructor(private router: Router,
+    private playersService: PlayersService) { }
 
   ngOnInit(): void {
-    
+
   }
-  goToPlayer(id:number){
+  goToPlayer(id: number) {
 
     this.router.navigate([`display-player/${id}`]);
   }
-  deletePlayer(id:number){
+  deletePlayer(id: number) {
     this.playersService.deletePlayer(id).subscribe(
       () => {
-      this.playersService.getAllPlayers().subscribe(
-        x=>{
-         this.newPlayer.emit(x);
-          
-        }
-      )
+        this.playersService.getAllPlayers().subscribe(
+          x => {
+            this.newPlayer.emit(x.players);
+
+          }
+        )
       }
-    )}}
+    )
+  }
+}

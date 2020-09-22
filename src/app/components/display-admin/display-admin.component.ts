@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-admin.component.css']
 })
 export class DisplayAdminComponent implements OnInit {
-id :number;
-users:any
+  id: number;
+  users: any
   constructor() { }
 
   ngOnInit(): void {
-   
-}}
+
+  }
+}

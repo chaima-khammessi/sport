@@ -1,3 +1,6 @@
+import { UserService } from './../../services/user.service';
+import { Router } from '@angular/router'
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
@@ -7,9 +10,13 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup;
+  loginForm: FormGroup;
+  logins: any = {};
+  isInvalid: boolean = false;
 
-  constructor(  private formBuilder:FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -18,8 +25,16 @@ export class LoginComponent implements OnInit {
     });
 
   }
- login(){
-    alert('login');
-  }
+  login() {
+    this.userService.login(this.loginForm.value).subscribe(
+      data => {
 
+        if (data.message == '2') {
+          this.router.navigate(['contact']);
+        } else {
+          this.isInvalid = true;
+        }
+      }
+    )
+  }
 }

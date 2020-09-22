@@ -8,37 +8,38 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./display-user.component.css']
 })
 export class DisplayUserComponent implements OnInit {
- 
-    @Input()user:any;
-    users: any = [];
-    id:number;
+
+  @Input() user: any;
+  users: any = [];
+  id: number;
 
 
-  constructor( private userService: UserService,
-               private activatedRoute:ActivatedRoute) { }
+  constructor(private userService: UserService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    
+
 
     this.userService.getAllUsers().subscribe(
       data => {
-        this.users = data 
-        
+        this.users = data
+
       },
-      error=>{
+      error => {
         console.log(error);
-        
+
       }
-    
-    )}
-    deleteUser(id:number){
-      this.userService.deleteUser(id).subscribe(
-        () => {
-          alert('user delete')
-        }
-      )
+
+    )
   }
-  
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        alert('user delete')
+      }
+    )
+  }
+
 
 }

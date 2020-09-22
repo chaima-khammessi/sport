@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import{MatchService} from 'src/app/services/match.service';
+import { MatchService } from 'src/app/services/match.service';
 import { from } from 'rxjs';
 
 @Component({
@@ -8,25 +8,26 @@ import { from } from 'rxjs';
   styleUrls: ['./matches.component.css']
 })
 export class MatchesComponent implements OnInit {
-  match:any;
-  resultat:string;
+  match: any;
+  resultat: string;
 
-  
+
 
   constructor(
-    private matchService:MatchService
+    private matchService: MatchService
   ) { }
 
   ngOnInit(): void {
     //Call service
     this.matchService.getAllMatches().subscribe(
       data => {
-        this.match = data;
+        this.match = data.matches;
       }
 
-    )}
+    )
+  }
 
-    updateMatches(matches:any){
-      this.match=matches;
-}
+  updateMatches(matches: any) {
+    this.match = matches;
+  }
 }

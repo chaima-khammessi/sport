@@ -66,6 +66,9 @@
                         <div *ngIf="userForm.controls['confirmPwd'].errors.minlength">
                             password Min length :8
                         </div>
+                        <div *ngIf="userForm.controls['confirmPwd'].errors.mustMatch">
+                            Confirm Pwd does not match PWD
+                        </div>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" formControlName='phone' placeholder="Phone number">

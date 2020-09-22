@@ -1,0 +1,41 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">Add Player</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form #playerForm='ngForm' (ngSubmit)='validate()'>
+          <div class="form-group">
+            <input type="text" [(ngModel)]='player.name' [ngModelOptions]="{standalone: true}" class="form-control"
+              placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]='player.post' [ngModelOptions]="{standalone: true}" class="form-control"
+              placeholder="Post">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]='player.age' [ngModelOptions]="{standalone: true}" class="form-control"
+              placeholder="Age">
+          </div>
+
+
+          <button type="button" (click)='filePicker.click()' class="btn btn-success">Séléctionner un fichier</button>
+          <input type="file" #filePicker style="visibility: hidden;" (change)='onImageSelected($event)'>
+          <img [src]="imagePreview" alt="" width="150px" height="150px">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary py-3 px-5">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
